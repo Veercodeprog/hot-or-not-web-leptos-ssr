@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package warehouse_events;
+
+message WarehouseEvent {
+  int32 id = 1;
+  string event_name = 2;
+}
+

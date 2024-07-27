@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package off_chain;
+
+message OffChainData {
+  string id = 1;
+  string data = 2;
+}
