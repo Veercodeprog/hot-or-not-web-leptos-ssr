@@ -10,6 +10,7 @@ crate-type = ["cdylib", "rlib"]
 axum = { version = "0.7", optional = true, features = ["macros"] }
 console_error_panic_hook = "0.1"
 console_log = "1"
+js-sys = "0.3"
 leptos = { version = "0.6", features = ["nightly"] }
 leptos_axum = { version = "0.6", optional = true }
 leptos_meta = { version = "0.6", features = ["nightly"] }
