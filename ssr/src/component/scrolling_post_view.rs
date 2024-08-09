@@ -5,9 +5,7 @@ use leptos_use::{use_intersection_observer_with_options, UseIntersectionObserver
 use crate::page::post_view::video_loader::{BgView, VideoView};
 
 use crate::utils::posts::PostDetails;
-#[cfg(feature = "wasm-bindgen")]
 use js_sys::Date;
-#[cfg(feature = "wasm-bindgen")]
 use wasm_bindgen::prelude::*;
 
 #[component]
