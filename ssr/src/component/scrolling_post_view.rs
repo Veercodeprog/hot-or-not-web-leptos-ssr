@@ -102,7 +102,7 @@ pub fn ScrollingPostView<F: Fn() -> V + Clone + 'static, V, O: Fn() -> IV, IV: I
         >
             <Icon
                 class=format!("text-white/80 text-4xl {}",
-                if js_sys::Date::now() - last_muted_change.get() < 3000.0 { "flash-animation" } else { "hidden" })
+                if js_sys::Date::now() - last_muted_change.get() < 3000.0 { "flash-animation" } else {""  })
                 icon=icondata::BiVolumeMuteSolid
             />
         </button>
