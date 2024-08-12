@@ -5,8 +5,6 @@ use leptos_use::{use_intersection_observer_with_options, UseIntersectionObserver
 use crate::page::post_view::video_loader::{BgView, VideoView};
 
 use crate::utils::posts::PostDetails;
-use js_sys::Date;
-use wasm_bindgen::prelude::*;
 
 #[component]
 pub fn ScrollingPostView<F: Fn() -> V + Clone + 'static, V, O: Fn() -> IV, IV: IntoView>(
