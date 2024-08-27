@@ -1,7 +1,23 @@
 use super::nav_icons::*;
+// use crate::state::auth::user_details;
+use crate::component::canisters_prov::{AuthCansProvider, WithAuthCans};
+use crate::state::canisters::Canisters;
+
+use crate::utils::profile::ProfileDetails;
 use leptos::*;
 use leptos_icons::*;
 use leptos_router::*;
+
+#[component]
+fn ProfileLoading() -> impl IntoView {
+    view! {
+        <div class="basis-4/12 aspect-square overflow-clip rounded-full bg-white/20 animate-pulse"></div>
+        <div class="basis-8/12 flex flex-col gap-2 animate-pulse">
+            <div class="w-full h-4 bg-white/20 rounded-full"></div>
+            <div class="w-full h-4 bg-white/20 rounded-full"></div>
+        </div>
+    }
+}
 
 #[component]
 fn NavIcon(
@@ -33,6 +49,25 @@ fn NavIcon(
             // <div class="absolute bottom-0 bg-primary-600 py-1 w-6 blur-md"></div>
             </Show>
         </a>
+    }
+}
+#[component]
+fn ProfileNavIcon(canisters: Canisters<true>, cur_selected: Memo<usize>) -> impl IntoView {
+    // Retrieve the profile details
+    let profile_details = canisters.profile_details();
+
+    // Create a reactive href based on the user's details
+    let profile_href =
+        create_memo(move |_| format!("/your-profile/{}", profile_details.username_or_principal()));
+
+    view! {
+        <NavIcon
+            idx=5
+            href=profile_href
+            icon=ProfileIcon0
+            filled_icon=ProfileIcon0
+            cur_selected=cur_selected
+        />
     }
 }
 
@@ -128,6 +163,7 @@ pub fn NavBar() -> impl IntoView {
     };
 
     view! {
+        <AuthCansProvider fallback=ProfileLoading let:canisters>
 
         <div class=move || {
             format!(
@@ -151,15 +187,15 @@ pub fn NavBar() -> impl IntoView {
             />
             <UploadIcon idx=2 cur_selected/>
             <NavIcon
-                idx=1
-                href="/leaderboard"
+                idx=5
+                href="  "
                 icon=ProfileIcon0
                 filled_icon=ProfileIcon0
                 cur_selected=cur_selected
             />
             <NavIcon idx=4 href="/menu" icon=MenuSymbol cur_selected=cur_selected/>
         </div>
-
+        </AuthCansProvider>
 
     }
 }
