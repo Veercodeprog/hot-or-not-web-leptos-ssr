@@ -259,6 +259,8 @@ pub fn Menu() -> impl IntoView {
                     icon=icondata::FaMoneyBillTransferSolid
                 />
                 <MenuItem href="/refer-earn" text="Refer & Earn" icon=icondata::AiGiftFilled/>
+                    <MenuItem href="/leaderboard" text="Leaderboard" icon=icondata::ChTrophy/>
+
                 <MenuItem
                     href=social::TELEGRAM
                     text="Talk to the team"
